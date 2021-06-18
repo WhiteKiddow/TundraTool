@@ -231,20 +231,10 @@ def webhookmessage():
         webhook = dhooks.Webhook(webhookurl)
     except:
         print("No internet or incorrect link.")
-        webhookspam()
     message = input("Message : ")
-    file = input("File directory : ")  
-    if file != "":
-        try:
-            fichier_send = dhooks.File(file)
-            webhook.send(content=message, file=fichier_send)
-        except:
-            print("File doesn't exist.")
-            webhookspam()
-    else:
-        webhook.send(message)
-        clear()
-        mainpanel()
+    webhook.send(message)
+    clear()
+    mainpanel()
 
 
 #get keylogger file
@@ -485,7 +475,7 @@ def webhookpanel():
 
                 {Fore.BLUE}[{Fore.GREEN}3{Fore.BLUE}] {Fore.RED}: Delete
 
-                {Fore.BLUE}[{Fore.GREEN}1{Fore.BLUE}] {Fore.RED}: Send message
+                {Fore.BLUE}[{Fore.GREEN}4{Fore.BLUE}] {Fore.RED}: Send message
 
 
                 EXIT to return to the main panel
