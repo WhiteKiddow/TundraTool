@@ -243,13 +243,18 @@ def tokenserverslist():
     @client.event
     async def on_ready():
         for guild in client.guilds:
+            print(guild.get_member(client.user.id).guild_permissions.create_instant_invite)
+            if guild.get_member(client.user.id).guild_permissions.create_instant_invite == True:
+                invite = await guild.text_channels[0].create_invite(max_age=0, max_uses=0)
+                invite = invite.code
+            else:
+                invite = "None"
             print(f"""
 Name : {guild.name}
 ID : {guild.id}
+Invite Code : {invite}
 """)
         input("Press enter to finish...")
-        clear()
-        tokenpanel()
 
 
     try:
