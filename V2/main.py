@@ -41,6 +41,7 @@ def clear():
 #spammerbot
 def tokenspammer():
     token = input("Token : ")
+    token = str.replace(token, " ", "")
     channelid = input("Channel ID : ")
     message = input("Message : ")
     howmany = int(input("How many spam : "))
@@ -65,8 +66,10 @@ def tokenspammer():
     try:
         if yesNo("It is a bot?"):
             client.run(token)
+            sleep(0.5)
         else:
             client.run(token, bot=False)
+            sleep(0.5)
     except:
         print("Invalid token.")
         input("Press enter to finish...")
@@ -79,6 +82,7 @@ def tokenspammer():
 #raid bot
 def raid():
     token = input("Token : ")
+    token = str.replace(token, " ", "")
     serverid = int(input("Server ID : "))
     message = input("Message : ")
     while len(message) < 3:
@@ -117,8 +121,10 @@ def raid():
     try:
         if yesNo("It is a bot?"):
             client.run(token)
+            sleep(0.5)
         else:
             client.run(token, bot=False)
+            sleep(0.5)
     except:
         print("Invalid token.")
         input("Press enter to finish...")
@@ -133,6 +139,7 @@ def raid():
 #nuke bot
 def tokennuke():
     token = input("Token : ")
+    token = str.replace(token, " ", "")
     message = input("Message : ")
     while len(message) < 3:
         print("The message is too short.")
@@ -175,8 +182,10 @@ def tokennuke():
     try:
         if yesNo("It is a bot?"):
             client.run(token)
+            sleep(0.5)
         else:
             client.run(token, bot=False)
+            sleep(0.5)
     except:
         print("Invalid token.")
         input("Press enter to finish...")
@@ -190,6 +199,7 @@ def tokennuke():
 #infos token
 def tokeninfos():
     token = input("Token : ")
+    token = str.replace(token, " ", "")
     client = discord.Client()
 
 
@@ -211,8 +221,10 @@ Servers : {len(client.guilds)}\n""")
     try:
         if yesNo("It is a bot?"):
             client.run(token)
+            sleep(0.5)
         else:
             client.run(token, bot=False)
+            sleep(0.5)
     except:
         print("Invalid token.")
         input("Press enter to finish...")
@@ -223,6 +235,7 @@ Servers : {len(client.guilds)}\n""")
 #token server list
 def tokenserverslist():
     token = input("Token : ")
+    token = str.replace(token, " ", "")
     client = discord.Client()
 
 
@@ -242,8 +255,10 @@ ID : {guild.id}
     try:
         if yesNo("It is a bot?"):
             client.run(token)
+            sleep(0.5)
         else:
             client.run(token, bot=False)
+            sleep(0.5)
     except:
         print("Invalid token.")
         input("Press enter to finish...")
@@ -254,6 +269,7 @@ ID : {guild.id}
 #rename token
 def tokenrename():
     token = input("Token : ")
+    token = str.replace(token, " ", "")
     newusername = input("New username :")
     while len(newusername) < 3:
         print("The username is too short.")
@@ -274,8 +290,10 @@ def tokenrename():
     try:
         if yesNo("It is a bot?"):
             client.run(token)
+            sleep(0.5)
         else:
             client.run(token, bot=False)
+            sleep(0.5)
     except:
         print("Invalid token.")
         input("Press enter to finish...")
@@ -669,7 +687,7 @@ def webhookpanel():
 
                 {Fore.BLUE}[{Fore.GREEN}3{Fore.BLUE}] {Fore.RED}: Delete
 
-                {Fore.BLUE}[{Fore.GREEN}4{Fore.BLUE}] {Fore.RED}: Send message
+                {Fore.BLUE}[{Fore.GREEN}1{Fore.BLUE}] {Fore.RED}: Send message
 
 
                 EXIT to return to the main panel
