@@ -58,8 +58,10 @@ def tokenspammer():
             print("invalid id or token.")
         for i in range(howmany):
             await channel.send(message)
-            print(f"Spam N°{i} sent.")
+            print(f"Spam N°{i + 1} sent.")
             sleep(delay/1000)
+        clear()
+        tokenpanel()
 
 
 
