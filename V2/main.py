@@ -35,7 +35,7 @@ def space(nmbr):
 
 
 def clear():
-  os.system("cls")
+    os.system("cls")
 
 
 #spammerbot
@@ -58,10 +58,8 @@ def tokenspammer():
             print("invalid id or token.")
         for i in range(howmany):
             await channel.send(message)
-            print(f"Spam N°{i + 1} sent.")
+            print(f"Spam N°{i} sent.")
             sleep(delay/1000)
-        clear()
-        tokenpanel()
 
 
 
@@ -245,18 +243,13 @@ def tokenserverslist():
     @client.event
     async def on_ready():
         for guild in client.guilds:
-            print(guild.get_member(client.user.id).guild_permissions.create_instant_invite)
-            if guild.get_member(client.user.id).guild_permissions.create_instant_invite == True:
-                invite = await guild.text_channels[0].create_invite(max_age=0, max_uses=0)
-                invite = invite.code
-            else:
-                invite = "None"
             print(f"""
 Name : {guild.name}
 ID : {guild.id}
-Invite Code : {invite}
 """)
         input("Press enter to finish...")
+        clear()
+        tokenpanel()
 
 
     try:
@@ -306,6 +299,77 @@ def tokenrename():
         input("Press enter to finish...")
         clear()
         tokenpanel()
+
+
+
+def server_info():
+    client = discord.Client()
+    token = input("Token : ")
+    token = str.replace(token, " ", "")
+    serverid = input("Server ID : ")
+    serverid = str.replace(serverid, " ", "")
+    serverid = int(serverid)
+
+
+
+    @client.event
+    async def on_ready():
+        guild = client.get_guild(serverid)
+        try:
+            guild.name
+        except:
+            print("Invalid id.")
+            input("Press enter to finish...")
+            clear()
+            tokenpanel()
+            exit()
+        channels = ""
+        for channel in guild.channels:
+            channels = channels + f"""
+            Nom : {channel.name}
+            ID : {channel.id}\n\n"""
+
+        
+        if guild.get_member(client.user.id).guild_permissions.create_instant_invite == True:
+            invite = await guild.text_channels[0].create_invite(max_age=0, max_uses=0)
+            invite = invite.code
+            print(invite)
+        else:
+            invite = "None"
+
+        print(f"""
+    Nom : {guild.name}
+    ID : {guild.id}
+    Invite code : {invite}
+    Members count : {guild.member_count}
+
+        Channels :
+
+            {channels}
+
+    """)
+
+    
+
+    try:
+        if yesNo("It is a bot?"):
+            client.run(token)
+            sleep(0.5)
+        else:
+            client.run(token, bot=False)
+            sleep(0.5)
+    except:
+        client.run(token)
+        print("Invalid token.")
+        input("Press enter to finish...")
+        clear()
+        tokenpanel()
+
+    input("Press enter to finish...")
+    clear()
+    tokenpanel()
+
+    
 
 
 
@@ -631,6 +695,8 @@ X~     `?888888hx~  ...ue888b   '888E   u         .u     x@88k u@88c.
 
                {Fore.BLUE}[{Fore.GREEN}6{Fore.BLUE}] {Fore.RED}: Rename
 
+               {Fore.BLUE}[{Fore.GREEN}7{Fore.BLUE}] {Fore.RED}: Server infos
+
                 
                 EXIT to return to the main panel
 """)
@@ -659,6 +725,10 @@ X~     `?888888hx~  ...ue888b   '888E   u         .u     x@88k u@88c.
     if botmode == "6":
         clear()
         tokenrename()
+        exit()
+    if botmode == "7":
+        clear()
+        server_info()
         exit()
     if botmode == "EXIT":
         clear()
