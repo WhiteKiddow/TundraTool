@@ -497,6 +497,7 @@ def commandslist():
         print(f"    {name} = {desc}")
 
     input("Press enter to finish...")
+    helppanel()
 
 
 
@@ -505,6 +506,7 @@ def searchcommand():
     command = input("Command > ")
     print(search_command(command))
     input("Press enter to finish...")
+    helppanel()
 
 
 
@@ -880,7 +882,10 @@ def helppanel():
 
                 {Fore.BLUE}[{Fore.GREEN}2{Fore.BLUE}] {Fore.RED}: Search commands
 
-                   " 
+
+                EXIT to return to the main panel
+
+                   
 {Fore.RED}\n\n\n\n
 """)
 
@@ -889,8 +894,12 @@ def helppanel():
         clear()
         commandslist()
         exit()
+    if helpcommand == "2":
+        clear()
+        searchcommand()
+        exit()
     clear()
-    mainpanel()
+    helppanel()
 
 
 
@@ -909,7 +918,7 @@ X~     `?888888hx~  .@88k  z88u    x@88k u@88c. '*88888bu    .d88B :@8c        u
 '    "*88888888*     `Y"   'YP       ""   'Y"    `"888*""       "Y"      "888*""888" 
         ^"***"`                                     ""                    ^Y"   ^Y'  
         
-                                   By Drayxio | V2
+                                   By Drayxio | V2.1
                                                                                      
                {Fore.BLUE}[{Fore.GREEN}1{Fore.BLUE}] {Fore.RED}: Webhook
 
