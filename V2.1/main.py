@@ -51,7 +51,7 @@ def add_command(name, parent, description):
 def search_command(name):
     for command in commands:
         if command.get("name").lower() == name.lower():
-            return command.get("name")
+            return command.get("parent") + " > " + command.get("name") + " : " + command.get("description")
     return "No command find"
 
 
@@ -479,22 +479,19 @@ def commandslist():
     
     for command in tokenscommands:
         name = command.get("name")
-        desc = command.get("description")
-        print(f"    {name} = {desc}")
+        print(f"    {name}")
 
     print("\n\nWebhooks >")
 
     for command in webhookscommands:
         name = command.get("name")
-        desc = command.get("description")
-        print(f"    {name} = {desc}")
+        print(f"    {name}")
 
     print("\n\nHelp >")
 
     for command in helpcommands:
         name = command.get("name")
-        desc = command.get("description")
-        print(f"    {name} = {desc}")
+        print(f"    {name}")
 
     input("Press enter to finish...")
     helppanel()
@@ -686,7 +683,6 @@ while True:
 
 def malwarepanel():
     print(f"""{Fore.MAGENTA}
-
     ...     ..      ..                       ..                                                        
   x*8888x.:*8888: -"888:               x .d88"    x=~                                                  
  X   48888X `8888H  8888                5888R    88x.   .e.   .e.                 .u    .              
@@ -727,8 +723,6 @@ X8888 X8888  88888   "*8%-    us888u.    888R    `8888  888X '888k    us888u.  =
 
 def tokenpanel():
     print(f"""{Fore.MAGENTA}
-
-
     .....                            ..                               
  .H8888888h.  ~-.              < .z@8"`                               
  888888888888x  `>        u.    !@88E                      u.    u.   
@@ -804,7 +798,6 @@ X~     `?888888hx~  ...ue888b   '888E   u         .u     x@88k u@88c.
 
 def webhookpanel():
     print(f"""{Fore.MAGENTA}
-
      ...    .     ...                       ..                                              ..         .x+=:.   
   .~`"888x.!**h.-``888h.              . uW8"        .uef^"                            < .z@8"`        z`    ^%  
  dX   `8888   :X   48888>             `t888       :d88E              u.          u.    !@88E             .   <k 
@@ -861,7 +854,6 @@ def webhookpanel():
 
 def helppanel():
     print(f"""{Fore.MAGENTA}
-
                                        ..               
          .xHL                    x .d88"                
       .-`8888hxxx~                5888R    .d``         
@@ -926,7 +918,9 @@ X~     `?888888hx~  .@88k  z88u    x@88k u@88c. '*88888bu    .d88B :@8c        u
 
                {Fore.BLUE}[{Fore.GREEN}3{Fore.BLUE}] {Fore.RED}: Malware
 
-               {Fore.BLUE}[{Fore.GREEN}4{Fore.BLUE}] {Fore.RED}: Help   
+               {Fore.BLUE}[{Fore.GREEN}4{Fore.BLUE}] {Fore.RED}: Help
+
+               {Fore.BLUE}[{Fore.GREEN}5{Fore.BLUE}] {Fore.RED}: Exit   
                                                                                   
                                                                                      
 """)
@@ -946,6 +940,9 @@ X~     `?888888hx~  .@88k  z88u    x@88k u@88c. '*88888bu    .d88B :@8c        u
     if mainmode == "4":
         clear()
         helppanel()
+        exit()
+    if mainmode == "5":
+        clear()
         exit()
     clear()
     mainpanel()    
