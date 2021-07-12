@@ -1,7 +1,5 @@
 
 import os
-
-from discord import client
 try:
     import dhooks
 except:
@@ -15,6 +13,18 @@ try:
 except:
     os.system("pip install discord")
 from time import sleep
+
+
+if os.name == "nt":
+    os.system("title TundraTool")
+    os.system("mode 110, 40")
+    def clear():
+        os.system("cls")
+else:
+    def clear():
+        os.system("clear")
+
+
 
 def yesNo(msg):
     y_or_n = input(msg+" (y/n)")
@@ -30,12 +40,6 @@ def space(nmbr):
     for i in range(nmbr):
         space = space + " "
     return space
-
-
-
-
-def clear():
-    os.system("cls")
 
 
 
@@ -494,6 +498,7 @@ def commandslist():
         print(f"    {name}")
 
     input("Press enter to finish...")
+    clear()
     helppanel()
 
 
@@ -503,6 +508,7 @@ def searchcommand():
     command = input("Command > ")
     print(search_command(command))
     input("Press enter to finish...")
+    clear()
     helppanel()
 
 
@@ -889,6 +895,10 @@ def helppanel():
     if helpcommand == "2":
         clear()
         searchcommand()
+        exit()
+    if helpcommand == "EXIT":
+        clear()
+        mainpanel()
         exit()
     clear()
     helppanel()
