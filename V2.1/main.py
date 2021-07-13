@@ -17,7 +17,7 @@ from time import sleep
 
 if os.name == "nt":
     os.system("title TundraTool")
-    os.system("mode 110, 40")
+    os.system("mode 115, 40")
     def clear():
         os.system("cls")
 else:
