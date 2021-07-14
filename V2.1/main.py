@@ -823,7 +823,7 @@ def webhookpanel():
 
                 {Fore.BLUE}[{Fore.GREEN}3{Fore.BLUE}] {Fore.RED}: Delete
 
-                {Fore.BLUE}[{Fore.GREEN}1{Fore.BLUE}] {Fore.RED}: Send message
+                {Fore.BLUE}[{Fore.GREEN}4{Fore.BLUE}] {Fore.RED}: Send message
 
 
                 EXIT to return to the main panel
