@@ -36,9 +36,7 @@ def yesNo(msg):
 
 
 def space(nmbr):
-    space = ""
-    for i in range(nmbr):
-        space = space + " "
+    space = " " * nmbr
     return space
 
 
@@ -394,7 +392,6 @@ def webhookspam():
         print("No internet or incorrect link.")
         webhookspam()
     message = input("Message : ")
-    file = input("File directory : ")
     howmany = int(input("How many spam : "))
     delay = int(input("Delay (ms) : "))
             
@@ -416,6 +413,7 @@ def webhookinfos():
         webhook = dhooks.Webhook(webhooklink)
     except:
         print("No Internet or Invalid Url.")
+        webhookinfos()
     print(f"""
     Url : {webhooklink}
     Name : {webhook.get_info().default_name}
@@ -454,10 +452,9 @@ def webhookmessage():
     try:
         webhook = dhooks.Webhook(webhookurl)
     except:
-        print("No internet or incorrect link.")
-        webhookspam()
-    message = input("Message : ")
-    file = input("File directory : ")  
+        print("No internet or invalid URL.")
+        webhookmessage()
+    message = input("Message : ")  
     webhook.send(message)
     clear()
     webhookpanel()
