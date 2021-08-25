@@ -2,7 +2,8 @@
 import os
 from ssl import RAND_status
 from typing import Counter
-try:
+try:ok
+    
     import dhooks
 except:
     os.system("pip install dhooks")
